@@ -1,7 +1,6 @@
 # Digital-Notebook
 # Digital Notebook - A Java Web Application
-
-![Digital Notebook Screenshot](https://github.com/ravikumarxworkz/Digital-Notebook/blob/main/src/main/webapp/img/Screenshot.png)
+<img src="https://github.com/ravikumarxworkz/Digital-Notebook/blob/main/src/main/webapp/img/Screenshot%20.png" alt="profile Page view">
 
 ## Table of Contents
 - [Overview](#overview)
