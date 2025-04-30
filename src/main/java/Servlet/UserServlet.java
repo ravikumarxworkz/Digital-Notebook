@@ -14,38 +14,39 @@ import jakarta.servlet.http.HttpSession;
 
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
-/**
-	 * 
-	 */
+	/**
+		 * 
+		 */
 	private static final long serialVersionUID = 1L;
 
-public void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
-{
-String firstName=request.getParameter("fname");
-String lastName=request.getParameter("lname");
-String email=request.getParameter("uemail");
-String number=request.getParameter("unumber");
-String password=request.getParameter("upassword");
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String firstName = request.getParameter("fname");
+		String lastName = request.getParameter("lname");
+		String email = request.getParameter("uemail");
+		String number = request.getParameter("unumber");
+		String password = request.getParameter("upassword");
 
-UserDetails userDetails=new UserDetails();
-userDetails.setFirstNameString(firstName);
-userDetails.setLastNameString(lastName);;
-userDetails.setEmailString(email);
-userDetails.setPhoneString(number);;
-userDetails.setPasswordString(password);;
- 
+		UserDetails userDetails = new UserDetails();
+		userDetails.setFirstNameString(firstName);
+		userDetails.setLastNameString(lastName);
+		;
+		userDetails.setEmailString(email);
+		userDetails.setPhoneString(number);
+		;
+		userDetails.setPasswordString(password);
+		;
 
-UserDao dao=new UserDao(DBConnect.getConnection());
-boolean f=dao.addUserDetails(userDetails);
-HttpSession session;
-if (f) {
-	session=request.getSession();
-	session.setAttribute("reg-success","Registration successfully");
-	response.sendRedirect("register.jsp");
-} else {
-	session=request.getSession();
-	session.setAttribute("failed-msg","OOPs! Something went wrong in Server");
-	response.sendRedirect("register.jsp");
-}
-}
+		UserDao dao = new UserDao(DBConnect.getConnection());
+		boolean f = dao.addUserDetails(userDetails);
+		HttpSession session;
+		if (f) {
+			session = request.getSession();
+			session.setAttribute("reg-success", "Registration successfully");
+			response.sendRedirect("register.jsp");
+		} else {
+			session = request.getSession();
+			session.setAttribute("failed-msg", "OOPs! Something went wrong in Server");
+			response.sendRedirect("register.jsp");
+		}
+	}
 }

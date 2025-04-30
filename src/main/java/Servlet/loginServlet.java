@@ -18,26 +18,24 @@ public class loginServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-String email=request.getParameter("uemail");
-String password=request.getParameter("upassword");
+		String email = request.getParameter("uemail");
+		String password = request.getParameter("upassword");
 
+		UserDetails userDetails = new UserDetails();
+		userDetails.setEmailString(email);
+		userDetails.setPasswordString(password);
 
-UserDetails userDetails =new UserDetails();
-userDetails.setEmailString(email);
-userDetails.setPasswordString(password);
-
-UserDao dao=new UserDao(DBConnect.getConnection());
-UserDetails user=dao.loginUser(userDetails);
-if (user!= null) {
-	HttpSession session=request.getSession();
-	session.setAttribute("userD", user);
-	response.sendRedirect("home.jsp");
-}
-else {
-	HttpSession session=request.getSession();
-	session.setAttribute("login-failed", "Invalid Username and Password");
-	response.sendRedirect("login.jsp");
-}
+		UserDao dao = new UserDao(DBConnect.getConnection());
+		UserDetails user = dao.loginUser(userDetails);
+		if (user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("userD", user);
+			response.sendRedirect("home.jsp");
+		} else {
+			HttpSession session = request.getSession();
+			session.setAttribute("login-failed", "Invalid Username and Password");
+			response.sendRedirect("login.jsp");
+		}
 	}
 
 }

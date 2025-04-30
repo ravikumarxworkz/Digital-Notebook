@@ -16,17 +16,16 @@ public class NoteEditServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
-			Integer noteIdInteger =Integer.parseInt(request.getParameter("noteId"));
-			
+			Integer noteIdInteger = Integer.parseInt(request.getParameter("noteId"));
+
 			String titleString = request.getParameter("title");
 			String contentString = request.getParameter("content");
 
 			postDao pDao = new postDao(DBConnect.getConnection());
-			boolean f = pDao.PostUpdate(titleString,contentString,noteIdInteger);
+			boolean f = pDao.PostUpdate(titleString, contentString, noteIdInteger);
 			if (f) {
 				System.out.println("data updated successfully");
 				HttpSession session = request.getSession();
@@ -40,7 +39,7 @@ public class NoteEditServlet extends HttpServlet {
 
 		} catch (NumberFormatException ne) {
 			ne.printStackTrace();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

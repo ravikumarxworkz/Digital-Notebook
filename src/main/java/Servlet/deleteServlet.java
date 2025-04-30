@@ -17,20 +17,20 @@ public class deleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-Integer noteIdInteger=Integer.parseInt(request.getParameter("note_id"));
-postDao poDao=new postDao(DBConnect.getConnection());
-boolean f=poDao.deleteNotes(noteIdInteger);
-HttpSession session=null;
-if (f) {
- session=request.getSession();
-	session.setAttribute("updateMsg","Notes Deleted Successfully..");
-	response.sendRedirect("showNotes.jsp");
-	
-}else {
-	session=request.getSession();
-session.setAttribute("wrongMsg", "OOps! SOmething went wrong on the server..");
-response.sendRedirect("showNotes.jsp");
-}
+		Integer noteIdInteger = Integer.parseInt(request.getParameter("note_id"));
+		postDao poDao = new postDao(DBConnect.getConnection());
+		boolean f = poDao.deleteNotes(noteIdInteger);
+		HttpSession session = null;
+		if (f) {
+			session = request.getSession();
+			session.setAttribute("updateMsg", "Notes Deleted Successfully..");
+			response.sendRedirect("showNotes.jsp");
+
+		} else {
+			session = request.getSession();
+			session.setAttribute("wrongMsg", "OOps! SOmething went wrong on the server..");
+			response.sendRedirect("showNotes.jsp");
+		}
 	}
 
 }
