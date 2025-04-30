@@ -1,7 +1,7 @@
 # Digital-Notebook
 # Digital Notebook - A Java Web Application
 
-![Digital Notebook Screenshot](img/app-screenshot.png)
+![Digital Notebook Screenshot](https://github.com/ravikumarxworkz/Digital-Notebook/blob/main/src/main/webapp/img/Screenshot.png)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -128,7 +128,7 @@ public class post {
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/Digital-Notebook.git
+   git clone https://github.com/ravikumarxworkz/Digital-Notebook.git
    cd Digital-Notebook
    ```
 
@@ -204,4 +204,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Note**: Replace placeholder images and URLs with your actual project details before publishing. This README provides a comprehensive overview of your Digital Notebook application, making it easy for users and contributors to understand and work with your project.
